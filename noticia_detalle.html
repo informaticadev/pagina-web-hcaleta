@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hospital Minimalista - Home Desktop Corregida</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "navy-deep": "#0a1e36",
+                        "mint-green": "#98FFD9",
+                        "mint-soft": "#e3f9f1",
+                        "soft-red": "#f87171",
+                        "background-light": "#ffffff",
+                        "footer-gray": "#f8f9fa",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        #mobile-menu-checkbox:checked~#mobile-sidebar {
+            transform: translateX(0);
+        }
+
+        #mobile-menu-checkbox:checked~#mobile-overlay {
+            display: block;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light text-navy-deep antialiased overflow-x-hidden">
+    <input class="hidden" id="mobile-menu-checkbox" type="checkbox" />
+    <div class="fixed inset-0 bg-navy-deep/40 backdrop-blur-sm z-[150] hidden lg:hidden" id="mobile-overlay"></div>
+    <aside
+        class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white z-[200] transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col lg:hidden"
+        id="mobile-sidebar">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+            <img src="assets/img/logo_caleta_nuevo.png" width="200">
+            <label class="p-2 cursor-pointer" for="mobile-menu-checkbox">
+                <span class="material-symbols-outlined text-gray-500">close</span>
+            </label>
+        </div>
+        <nav class="flex-1 px-6 py-8 flex flex-col gap-6">
+            <a class="text-lg font-bold text-navy-deep flex items-center gap-3" href="#">Especialidades</a>
+            <a class="text-lg font-bold text-navy-deep flex items-center gap-3" href="#">Staff</a>
+            <a class="text-lg font-bold text-navy-deep flex items-center gap-3" href="#">Servicios</a>
+            <a class="text-lg font-bold text-navy-deep flex items-center gap-3" href="#">Sedes</a>
+            <div class="h-px bg-gray-100 my-2"></div>
+            <a class="text-lg font-bold text-primary flex items-center gap-3" href="#">Mi Portal</a>
+        </nav>
+        <div class="p-6 bg-gray-50">
+            <button class="w-full bg-primary text-white py-4 rounded-xl font-bold">Agendar Cita</button>
+        </div>
+    </aside>
+    
+    <div class="w-full bg-navy-deep text-white/80 py-2.5 border-b border-white/5">
+        <div
+            class="max-w-[1440px] mx-auto px-8 flex items-center justify-between text-[11px] font-medium tracking-wide">
+            <div class="flex items-center gap-6">
+                <a class="flex items-center gap-2 hover:text-white transition-colors"
+                    href="mailto:mesa_partes@hcaleta.gob.pe">
+                    <span class="material-symbols-outlined text-sm text-primary">mail</span>
+                    mesa_partes@hcaleta.gob.pe
+                </a>
+                <div class="hidden md:flex items-center gap-2 border-l border-white/20 pl-6">
+                    <span class="material-symbols-outlined text-sm text-primary">schedule</span>
+                    <span>Lun - Vie: 08:00AM - 15:30PM </span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <span class="text-white/40">Siguenos:</span>
+                <div class="flex gap-3">
+                    <a class="hover:text-primary transition-colors" href="#">FB</a>
+                    <a class="hover:text-primary transition-colors" href="#">IG</a>
+                    <a class="hover:text-primary transition-colors" href="#">LI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="sticky z-50 top-0 w-full bg-white shadow-sm border-b border-gray-200 z-[100]">
+        <div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="assets/img/logo_caleta_nuevo.png" width="200">
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors"
+                    href="index.html">Inicio</a>
+                <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors" href="#">Staff</a>
+                <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors" href="#">Servicios</a>
+                <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors" href="noticias_2.html">Noticias</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="hidden lg:block px-6 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+                    Agendar Cita
+                </button>
+                <label class="lg:hidden flex items-center justify-center size-10 text-navy-deep cursor-pointer"
+                    for="mobile-menu-checkbox">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </label>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="max-w-[1000px] mx-auto px-8 pt-16 pb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="px-4 py-1.5 bg-mint-soft text-primary text-[10px] font-black uppercase tracking-widest rounded-full">Tecnología Médica</span>
+                <span class="text-gray-400 text-sm font-medium">Lectura de 5 min</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.1] tracking-tight mb-8">
+                Inauguramos nueva unidad de resonancia magnética 3T de última generación
+            </h1>
+            <div class="flex items-center gap-4 border-b border-gray-100 pb-12">
+                <div class="size-12 rounded-full bg-gray-100 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary">person</span>
+                </div>
+                <div>
+                    <p class="font-bold text-sm">Comunicaciones Hospital La Caleta</p>
+                    <p class="text-gray-400 text-xs font-medium">Publicado el 12 de Octubre, 2024</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-[1200px] mx-auto px-8 mb-16">
+            <div class="rounded-[3rem] overflow-hidden shadow-2xl shadow-navy-deep/5 aspect-video md:aspect-[21/9]">
+                <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="Imagen noticia">
+            </div>
+        </section>
+
+        <section class="max-w-[1200px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 pb-24">
+            
+            <article class="lg:col-span-8 text-gray-600">
+                <div class="prose prose-lg max-w-none space-y-8">
+                    <p class="text-xl text-navy-deep font-medium leading-relaxed italic">
+                        "Este avance tecnológico posiciona a nuestro hospital como referente regional en diagnóstico por imágenes, reduciendo los tiempos de espera en un 40%."
+                    </p>
+                    
+                    <p class="leading-relaxed text-lg text-gray-500">
+                        El Hospital La Caleta ha dado un paso histórico en la modernización de sus servicios de salud con la adquisición del nuevo resonador magnético 3 Tesla. Este equipo, único en su tipo en la red pública de la región, permite obtener imágenes de una nitidez sin precedentes.
+                    </p>
+
+                    <h2 class="text-3xl font-extrabold text-navy-deep pt-4">Beneficios directos para el paciente</h2>
+                    <p class="leading-relaxed text-lg text-gray-500">
+                        A diferencia de los equipos convencionales, la nueva unidad reduce significativamente el ruido durante el examen y cuenta con un túnel más amplio, ideal para pacientes con claustrofobia o niños. Entre las especialidades beneficiadas se encuentran:
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary">check_circle</span>
+                            <strong class="text-navy-deep font-bold">Neurología:</strong> Detección temprana de patologías cerebrales.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary">check_circle</span>
+                            <strong class="text-navy-deep font-bold">Oncología:</strong> Seguimiento preciso de tratamientos tumorales.
+                        </li>
+                    </ul>
+
+                    <div class="my-12 p-8 bg-gray-50 rounded-[2rem] border border-gray-100 italic text-center">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000" class="rounded-xl mb-4" alt="Personal médico">
+                        <p class="text-sm text-gray-400">Nuestro equipo de radiólogos durante la capacitación internacional del nuevo software.</p>
+                    </div>
+
+                    <p class="leading-relaxed text-lg text-gray-500">
+                        La inversión, que supera los varios millones de soles, incluye también la remodelación completa del área de espera y la digitalización de los resultados, los cuales podrán ser consultados a través de nuestro <span class="text-primary font-bold">Portal del Paciente</span> de forma inmediata.
+                    </p>
+                </div>
+
+                <div class="mt-16 pt-8 border-t border-gray-100 flex flex-wrap items-center gap-4">
+                    <span class="font-bold text-sm uppercase tracking-widest text-navy-deep">Compartir:</span>
+                    <button class="size-10 rounded-full bg-gray-50 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-gray-400">
+                        <span class="material-symbols-outlined text-xl italic">share</span>
+                    </button>
+                </div>
+            </article>
+
+            <aside class="lg:col-span-4 space-y-12">
+                <div class="bg-gray-50/50 rounded-[2.5rem] p-8 border border-gray-100">
+                    <h3 class="text-xl font-extrabold mb-8">Noticias Relacionadas</h3>
+                    <div class="space-y-8">
+                        <a href="#" class="group flex gap-4">
+                            <div class="size-20 shrink-0 rounded-2xl overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1505751172107-573225a9420a?auto=format&fit=crop&q=80&w=200" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Relacionada">
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-sm leading-tight group-hover:text-primary transition-colors">Nuevo laboratorio clínico automatizado</h4>
+                                <p class="text-gray-400 text-[10px] font-bold uppercase">05 Oct, 2024</p>
+                            </div>
+                        </a>
+                        <a href="#" class="group flex gap-4">
+                            <div class="size-20 shrink-0 rounded-2xl overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=200" class="w-full h-full object-cover group-hover:scale-110 transition-transform" alt="Relacionada">
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-bold text-sm leading-tight group-hover:text-primary transition-colors">Plan de contingencia por temporada de lluvias</h4>
+                                <p class="text-gray-400 text-[10px] font-bold uppercase">01 Oct, 2024</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-primary rounded-[2.5rem] p-8 text-white shadow-xl shadow-primary/20">
+                    <span class="material-symbols-outlined text-4xl mb-4">mail</span>
+                    <h3 class="text-xl font-extrabold mb-2 text-white">Suscríbete al Boletín</h3>
+                    <p class="text-white/80 text-sm mb-6">Recibe las últimas noticias y consejos de salud en tu correo.</p>
+                    <input type="email" placeholder="Tu correo electrónico" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-sm placeholder:text-white/50 mb-4 focus:outline-none focus:ring-2 ring-white/30">
+                    <button class="w-full bg-white text-primary font-bold py-3 rounded-xl hover:bg-mint-soft transition-colors text-sm">Suscribirme</button>
+                </div>
+            </aside>
+
+        </section>
+        
+    </main>
+    <footer class="bg-footer-gray pt-20 pb-12">
+        <div class="max-w-[1440px] mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-20">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <!-- <div class="text-primary flex size-8 items-center justify-center bg-primary/10 rounded-lg">
+                            <span class="material-symbols-outlined text-2xl">medical_services</span>
+                        </div>
+                        <h2 class="text-navy-deep text-lg font-extrabold tracking-tight italic">HOSPITAL<span
+                                class="font-light text-primary">MIN</span></h2> -->
+                        <img src="assets/img/logo_caleta_nuevo.png" width="200">
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Referente en salud privada, comprometidos con la
+                        excelencia médica y el trato humano desde 1995.</p>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-xl">social_leaderboard</span></a>
+                        <a class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-xl">camera</span></a>
+                        <a class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-xl">play_circle</span></a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-8 lg:col-span-2">
+                    <div class="space-y-6">
+                        <h4 class="font-bold text-navy-deep uppercase text-xs tracking-widest">Institución</h4>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><a class="hover:text-primary transition-colors" href="#">Nosotros</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Directorio Médico</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Responsabilidad Social</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Trabaja con nosotros</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="font-bold text-navy-deep uppercase text-xs tracking-widest">Pacientes</h4>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><a class="hover:text-primary transition-colors" href="#">Prepago y Seguros</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Preguntas Frecuentes</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Canal Ético</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Derechos y Deberes</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="font-bold text-navy-deep uppercase text-xs tracking-widest">Sede Central</h4>
+                    <div class="h-32 w-full rounded-2xl overflow-hidden border border-gray-200 grayscale relative">
+                        <img alt="Map Location" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw0ZrwTQ4xK__kJAaKB2X7HPY9whrZx4K8UWaussVNSAFu2uDBA_CzKQZZS4kl4jUmHZneASgmKG0uex5CkD4yIOzOHgyclbAMLklYKqD9vEPebIoATzIQiN4V_YbdLvYllo9cXkSWXDvKi8wqhd_j4PcETeReH5tNYQZLx5zJbelWkEX8rW45rS-FrGH4_MmNm8-O4Sv1BLYw44JjqkrmAHnZ8PJ0nOwj1Uc9EOUqqPKLA76UmaFSHzpsC8NWnor7I9dgAfINiWo" />
+                        <div class="absolute inset-0 bg-primary/5"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-500">
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-lg">pin_drop</span> Av. Malecon Grau s/n - Urb.
+                            La Caleta
+                        </p>
+                        <p class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">call</span>
+                            +51 043327589</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+                <p>© 2026 Hospital La Caleta. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-navy-deep" href="#">Política de Privacidad</a>
+                    <a class="hover:text-navy-deep" href="#">Cookies</a>
+                    <a class="hover:text-navy-deep" href="#">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="fixed bottom-10 right-10 z-[60]">
+        <button
+            class="group flex items-center gap-3 bg-white border border-soft-red/20 text-soft-red pr-6 pl-2 py-2 rounded-full shadow-lg hover:shadow-soft-red/20 hover:scale-105 transition-all">
+            <div class="size-10 bg-soft-red text-white rounded-full flex items-center justify-center animate-pulse">
+                <span class="material-symbols-outlined text-xl font-bold">emergency</span>
+            </div>
+            <div class="flex flex-col items-start leading-tight">
+                <span class="text-[9px] uppercase font-black tracking-widest opacity-60">Emergencia 24/7</span>
+                <span class="text-sm font-bold text-navy-deep">Llamar Ahora</span>
+            </div>
+        </button>
+    </div>
+
+</body>
+
+</html>

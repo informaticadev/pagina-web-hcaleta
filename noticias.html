@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Noticias - Hospital La Caleta</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "navy-deep": "#0a1e36",
+                        "mint-soft": "#e3f9f1",
+                        "background-light": "#ffffff",
+                        "footer-gray": "#f8f9fa",
+                    },
+                    fontFamily: { "display": ["Manrope", "sans-serif"] },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24; }
+        body { min-height: 100vh; }
+    </style>
+</head>
+
+<body class="font-display bg-white text-navy-deep antialiased">
+
+    <nav class="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+            <img src="assets/img/logo_caleta_nuevo.png" width="180" alt="Logo">
+            <div class="hidden md:flex items-center gap-8 text-sm font-bold">
+                <a href="#" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="#" class="text-primary">Noticias</a>
+                <a href="#" class="hover:text-primary transition-colors">Especialidades</a>
+            </div>
+            <button class="bg-primary text-white px-6 py-2 rounded-lg text-sm font-bold shadow-lg shadow-primary/20">Portal Paciente</button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="max-w-[1440px] mx-auto px-8 pt-16 pb-12">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+                <div class="space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-mint-soft px-3 py-1.5 rounded-full">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-primary">Actualidad Institucional</span>
+                    </div>
+                    <h1 class="text-5xl font-extrabold tracking-tight">Todas las <span class="text-primary">Noticias</span></h1>
+                    <p class="text-gray-500 text-lg max-w-xl">Mantente informado sobre campañas de salud, avances médicos y novedades del Hospital La Caleta.</p>
+                </div>
+
+                <div class="flex flex-wrap gap-3">
+                    <button class="px-6 py-2.5 rounded-xl bg-primary text-white font-bold text-sm shadow-md shadow-primary/20 transition-all">Todas</button>
+                    <button class="px-6 py-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-500 font-bold text-sm hover:border-primary/30 hover:text-primary transition-all">Tecnología</button>
+                    <button class="px-6 py-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-500 font-bold text-sm hover:border-primary/30 hover:text-primary transition-all">Campañas</button>
+                    <button class="px-6 py-2.5 rounded-xl bg-gray-50 border border-gray-100 text-gray-500 font-bold text-sm hover:border-primary/30 hover:text-primary transition-all">Gestión</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full bg-gray-50/50 border-y border-gray-100 py-20">
+            <div class="max-w-[1440px] mx-auto px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <article class="group bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+                        <div class="aspect-[16/10] overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT2DCfnEiFa-YhvCTd2VF8lMNw_slDsTKDsCF6Hl4tiuVg4OqEQstyj2utroUy5_Qrwr-9NVaFrnuxV1sBlJ7Ub-1PIx3Qx0p_3R6_IXjVO4HvfNcJCuJkSk0crZOxbcLRULl22TgaVzhEVcz3mQdMJdpyUaVcF1hgVQltC_P-tufPJzNk6hShCYsi6nMyjVsgCXlLQj2NpVkJaYvMSBlFSx8LKFgfAnL6iAS3aCA3TBvp5vl6PqA-Q4pXfizGXCCq8DpK-mfsCr8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Noticia">
+                            <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
+                                <span class="text-[10px] font-black uppercase text-primary tracking-widest">Tecnología</span>
+                            </div>
+                        </div>
+                        <div class="p-10">
+                            <span class="text-gray-400 text-xs font-bold uppercase tracking-tighter">12 Octubre, 2024</span>
+                            <h3 class="text-2xl font-extrabold text-navy-deep mt-3 mb-4 leading-tight group-hover:text-primary transition-colors">Inauguramos nueva unidad de resonancia 3T</h3>
+                            <p class="text-gray-500 leading-relaxed text-sm mb-8 line-clamp-3">Contamos con la tecnología más avanzada de la región para diagnósticos precisos en menor tiempo y con mayor comodidad para el paciente.</p>
+                            <a href="#" class="flex items-center gap-2 text-primary font-bold text-sm group/link">
+                                Leer noticia completa 
+                                <span class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="group bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+                        <div class="aspect-[16/10] overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHySWxvdinVQS2Y9A_3OUiPm4IK5WkRTqUux21RfBG4BUGVhn7PzOkhxL6OPckztunKSlDYiesJU_oMOnTW-WLgVSILqbX3CE6tvaMMYCCz57gpp4pZAeO1rUHrWYgbPOCVGxxj1Vnnir1caS2fjPhR6AcHFhGpTynXk66H9g-rG5yO-I2vi8-4RbN1R-NNfnFmSUzch1oayG3gjJPKPZ4xGzg6zcfKdI-YBpNs-eduiFpyFZ-1WS1wGzisGix4osqnWlydhclN94" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Noticia">
+                            <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
+                                <span class="text-[10px] font-black uppercase text-primary tracking-widest">Prevención</span>
+                            </div>
+                        </div>
+                        <div class="p-10">
+                            <span class="text-gray-400 text-xs font-bold uppercase tracking-tighter">08 Octubre, 2024</span>
+                            <h3 class="text-2xl font-extrabold text-navy-deep mt-3 mb-4 leading-tight group-hover:text-primary transition-colors">Campaña de vacunación pediátrica 2024</h3>
+                            <p class="text-gray-500 leading-relaxed text-sm mb-8 line-clamp-3">Iniciamos la jornada nacional protegiendo a los más pequeños. Atendemos de forma gratuita en el módulo de pediatría.</p>
+                            <a href="#" class="flex items-center gap-2 text-primary font-bold text-sm group/link">
+                                Leer noticia completa 
+                                <span class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="group bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+                        <div class="aspect-[16/10] overflow-hidden relative">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGARYZGFwwLmocEIFkP8YDkbiJ_Qm0UdZygbqKJDS6lrXdgUUX83_8ev0NhDemI1Iwf3MaHooZ6AgquD4pU7krjwXNKzo5StHjjfycNyqABAurVVDzDdN-ylZ-pFjGXANkPYHj5Di4U2HvJeI5Z_KEnRoyKjPO71q1XQ8VUeyUgu7ng3bdGTSOSvbbTA7LMve5mQfL8wUQEqM7vXq0oZVbSoQ-Qj0eATHZ58hRCBQDxO6rofVJsON1AnqgFgPGfxSQwe5hMxFKxYc" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Noticia">
+                            <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
+                                <span class="text-[10px] font-black uppercase text-primary tracking-widest">Institucional</span>
+                            </div>
+                        </div>
+                        <div class="p-10">
+                            <span class="text-gray-400 text-xs font-bold uppercase tracking-tighter">01 Octubre, 2024</span>
+                            <h3 class="text-2xl font-extrabold text-navy-deep mt-3 mb-4 leading-tight group-hover:text-primary transition-colors">Acreditación internacional de calidad</h3>
+                            <p class="text-gray-500 leading-relaxed text-sm mb-8 line-clamp-3">Este sello reafirma nuestro compromiso inquebrantable con la seguridad del paciente y la excelencia médica.</p>
+                            <a href="#" class="flex items-center gap-2 text-primary font-bold text-sm group/link">
+                                Leer noticia completa 
+                                <span class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                            </a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="mt-20 flex justify-center">
+                    <nav class="flex items-center gap-3 bg-white p-2 rounded-2xl border border-gray-100 shadow-sm">
+                        <button class="size-12 flex items-center justify-center rounded-xl text-gray-400 hover:bg-gray-50 transition-all">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        
+                        <button class="size-12 flex items-center justify-center rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/20">1</button>
+                        <button class="size-12 flex items-center justify-center rounded-xl text-navy-deep font-bold hover:bg-gray-50 transition-all">2</button>
+                        <button class="size-12 flex items-center justify-center rounded-xl text-navy-deep font-bold hover:bg-gray-50 transition-all">3</button>
+                        
+                        <span class="px-2 text-gray-300 font-bold">...</span>
+                        
+                        <button class="size-12 flex items-center justify-center rounded-xl text-navy-deep font-bold hover:bg-gray-50 transition-all">10</button>
+                        
+                        <button class="size-12 flex items-center justify-center rounded-xl text-gray-400 hover:bg-gray-50 transition-all">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-navy-deep py-12 text-center">
+        <p class="text-white/40 text-sm">© 2026 Hospital La Caleta - Chimbote, Perú</p>
+    </footer>
+
+</body>
+</html>

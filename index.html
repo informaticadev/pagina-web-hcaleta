@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hospital Minimalista - Home Desktop Corregida</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "navy-deep": "#0a1e36",
+                        "mint-green": "#98FFD9",
+                        "mint-soft": "#e3f9f1",
+                        "soft-red": "#f87171",
+                        "background-light": "#ffffff",
+                        "footer-gray": "#f8f9fa",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        #mobile-menu-checkbox:checked~#mobile-sidebar {
+            transform: translateX(0);
+        }
+
+        #mobile-menu-checkbox:checked~#mobile-overlay {
+            display: block;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light text-navy-deep antialiased overflow-x-hidden">
+    <input class="hidden" id="mobile-menu-checkbox" type="checkbox" />
+    <div class="fixed inset-0 bg-navy-deep/40 backdrop-blur-sm z-[150] hidden lg:hidden" id="mobile-overlay"></div>
+    <aside
+        class="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white z-[200] transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col lg:hidden"
+        id="mobile-sidebar">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center">
+            <!-- <h2 class="text-navy-deep text-lg font-extrabold tracking-tight">HOSPITAL<span
+                    class="font-light text-primary">MIN</span></h2>
+            <label class="p-2 cursor-pointer" for="mobile-menu-checkbox">
+                <span class="material-symbols-outlined text-gray-500">close</span>
+            </label> -->
+            <img src="assets/img/logo_caleta_nuevo.png" width="200">
+            <label class="p-2 cursor-pointer" for="mobile-menu-checkbox">
+                <span class="material-symbols-outlined text-gray-500">close</span>
+            </label>
+        </div>
+        <nav class="flex-1 px-6 py-8 flex flex-col gap-6">
+            <a class="text-lg font-bold text-navy-deep flex items-center gap-3" href="#">Inicio</a>
+            <a class="text-lg font-bold text-navy-deep flex items-center gap-3" href="#">Staff</a>
+            <a class="text-lg font-bold text-navy-deep flex items-center gap-3" href="#">Servicios</a>
+            <a class="text-lg font-bold text-navy-deep flex items-center gap-3" href="noticias_2.html">Noticias</a>
+            <div class="h-px bg-gray-100 my-2"></div>
+            <a class="text-lg font-bold text-primary flex items-center gap-3" href="#">Mi Portal</a>
+        </nav>
+        <div class="p-6 bg-gray-50">
+            <button class="w-full bg-primary text-white py-4 rounded-xl font-bold">Agendar Cita</button>
+        </div>
+    </aside>
+    <!-- <header class="w-full relative z-50">
+        <div class="w-full bg-navy-deep text-white/80 py-2.5 border-b border-white/5">
+            <div
+                class="max-w-[1440px] mx-auto px-8 flex items-center justify-between text-[11px] font-medium tracking-wide">
+                <div class="flex items-center gap-6">
+                    <a class="flex items-center gap-2 hover:text-white transition-colors"
+                        href="mailto:mesa_partes@hcaleta.gob.pe">
+                        <span class="material-symbols-outlined text-sm text-primary">mail</span>
+                        mesa_partes@hcaleta.gob.pe
+                    </a>
+                    <div class="hidden md:flex items-center gap-2 border-l border-white/20 pl-6">
+                        <span class="material-symbols-outlined text-sm text-primary">schedule</span>
+                        <span>Lun - Vie: 08:00AM - 15:30PM </span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <span class="text-white/40">Siguenos:</span>
+                    <div class="flex gap-3">
+                        <a class="hover:text-primary transition-colors" href="#">FB</a>
+                        <a class="hover:text-primary transition-colors" href="#">IG</a>
+                        <a class="hover:text-primary transition-colors" href="#">LI</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="sticky top-0 w-full bg-white shadow-sm border-b border-gray-200 z-[100]">
+            <div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="assets/img/logo_caleta_nuevo.png" width="200">
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors"
+                        href="#">Especialidades</a>
+                    <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors" href="#">Staff</a>
+                    <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors"
+                        href="#">Servicios</a>
+                    <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors" href="#">Sedes</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button
+                        class="hidden lg:block px-6 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+                        Agendar Cita
+                    </button>
+                    <label class="lg:hidden flex items-center justify-center size-10 text-navy-deep cursor-pointer"
+                        for="mobile-menu-checkbox">
+                        <span class="material-symbols-outlined text-3xl">menu</span>
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header> -->
+    <div class="w-full bg-navy-deep text-white/80 py-2.5 border-b border-white/5">
+        <div
+            class="max-w-[1440px] mx-auto px-8 flex items-center justify-between text-[11px] font-medium tracking-wide">
+            <div class="flex items-center gap-6">
+                <a class="flex items-center gap-2 hover:text-white transition-colors"
+                    href="mailto:mesa_partes@hcaleta.gob.pe">
+                    <span class="material-symbols-outlined text-sm text-primary">mail</span>
+                    mesa_partes@hcaleta.gob.pe
+                </a>
+                <div class="hidden md:flex items-center gap-2 border-l border-white/20 pl-6">
+                    <span class="material-symbols-outlined text-sm text-primary">schedule</span>
+                    <span>Lun - Vie: 08:00AM - 15:30PM </span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-4">
+                <span class="text-white/40">Siguenos:</span>
+                <div class="flex gap-3">
+                    <a class="hover:text-primary transition-colors" href="#">FB</a>
+                    <a class="hover:text-primary transition-colors" href="#">IG</a>
+                    <a class="hover:text-primary transition-colors" href="#">LI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="sticky z-50 top-0 w-full bg-white shadow-sm border-b border-gray-200 z-[100]">
+        <div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="assets/img/logo_caleta_nuevo.png" width="200">
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors"
+                    href="index.html">Inicio</a>
+                <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors" href="#">Staff</a>
+                <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors" href="#">Servicios</a>
+                <a class="text-sm font-bold text-navy-deep hover:text-primary transition-colors"
+                    href="noticias_2.html">Noticias</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="hidden lg:block px-6 py-2.5 bg-primary text-white rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">
+                    Agendar Cita
+                </button>
+                <label class="lg:hidden flex items-center justify-center size-10 text-navy-deep cursor-pointer"
+                    for="mobile-menu-checkbox">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </label>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="relative w-full overflow-hidden bg-white">
+            <div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[640px] items-center">
+                <div class="px-8 py-16 flex flex-col items-start gap-8">
+                    <div class="inline-flex items-center gap-2 bg-mint-soft px-3 py-1.5 rounded-full">
+                        <span class="size-2 bg-primary rounded-full animate-pulse"></span>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-primary">Vanguardia en
+                            Salud</span>
+                    </div>
+                    <h1
+                        class="text-navy-deep text-5xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight max-w-lg">
+                        Tu salud es nuestra <span class="text-primary">prioridad</span>
+                    </h1>
+                    <p class="text-gray-500 text-lg lg:text-xl font-light leading-relaxed max-w-md">
+                        Descubre una nueva forma de cuidado médico donde la tecnología y la empatía se unen para tu
+                        bienestar.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                        <button
+                            class="bg-primary text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-xl shadow-primary/25 hover:-translate-y-1 transition-all active:scale-95">
+                            Agendar Cita
+                        </button>
+                        <button
+                            class="flex items-center justify-center gap-2 text-navy-deep border border-gray-200 px-10 py-5 rounded-2xl text-lg font-bold hover:bg-gray-50 transition-all">
+                            <span class="material-symbols-outlined">call</span>
+                            Llamar ahora
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-6 mt-4">
+                        <div class="flex -space-x-3">
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden"><img
+                                    alt="doc"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaRTafsfIswM8ShnMLqn7STKip7SWRoPFzUOjmAfCiTN6_LiDuLZZ5HGUXLMLk6GmSm-bkYBmuZhT9NMpkojj7yXf3x8a4Gnn6jxV3ziZYJ8beKXm8gWDhiXs56ExFo4OyZhwbZCmrWI9hCxzdtoNuzv6q6wgrXBkEsjjqgP7CZExZsQ0cgKioXDUUFVFFFAoimQNsUafIIChIFh9kCi_IqPmquNkf0NbfXYd9EMYl4V0YxsSy2g6uNkLNmCkBuQf26ICzvRoc-N0" />
+                            </div>
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden"><img
+                                    alt="doc"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw8Yy2oBfX6zRZ-oB0BgRPfZL5puIJHilFDzoVAAkf4o7Syp_vl1AH4YkXMQ7_MYsJSJ5U6ekQPQVc_JbLtSja9X2DrrvFSNsxr2FytEcMoIJ-eMHJ5Rfz1pFawZEZgQkyDc79lViRMQ3hkdWDWSQHOvmEmVNELvqtwq9lnBwpxfD5Fx34QJ7MZyN0jNUsfxsks-CwM1ifLmgl1-jXzlD1HygxYHo7Iub8z-y3QxFROU6zUMN6rHiV9QGJqA5VvO7vGD557V9NDXo" />
+                            </div>
+                            <div class="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden"><img
+                                    alt="doc"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmc_arn3g3qCSVFPcSoyi5SAuB9l9LNakUcCqclkEHvPYX1ArvzWx8vVxtWZygTCM0BiM4KdnXLWNtcNPnRhYYzuIh0j4juy1mq3XJgILxqbY2aZBBerSWl0wQtWG1kM8S61ElQovAfCwugII-59UJh3SDJ3vgwzTMcaUoYKCnHTb0iLbtp8CQmB7im-iKGkblUdNTCAuiXVI5PbQpMC7RHsUGlyHRVJxqBYZE8cA_4n-l8ebkZmDUnZrGC8Mv6WgJ19CDUzA27fE" />
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 font-medium">+500 Especialistas certificados</p>
+                    </div>
+                </div>
+                <div class="hidden lg:block relative h-full min-h-[400px] lg:min-h-0 bg-gray-50 overflow-hidden">
+                    <img alt="Professional healthcare" class="absolute inset-0 w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT0TG8alhpz5c8vw16hyK1xaKrYXDFgkAgihqUMZNm1VNPgMC0Ha_Tu8yFrtlYcnF0_EAeTbQmlC3fvIRJkTdtE63WTUusCjb_cr1yO5qrcl28jBIP966Et2nWfy52H1OZjQtrgnzs1-mYiSRq1_xEPNRqhAjc2ACaZR3k0psMxEusHVhAplQsRXd0sFmXSBK1ABEJ8G7K0UG0Wiswhz7lQq_NEA9btx2X0xBM4C9mz7cKONKnCDx2YZe0MF7B4sZUlQjizJ-UiQg" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent hidden lg:block">
+                    </div>
+                    <div
+                        class="absolute bottom-10 left-10 right-10 lg:right-auto lg:w-72 bg-white/80 backdrop-blur-md p-6 rounded-2xl border border-white shadow-xl hidden md:block">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="material-symbols-outlined text-primary font-bold">verified_user</span>
+                            <span class="text-sm font-bold">Certificación Internacional</span>
+                        </div>
+                        <p class="text-xs text-gray-600">Acreditados por los más altos estándares globales de seguridad
+                            y calidad hospitalaria.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-[1440px] mx-auto px-8 bg-gray-100 py-24">
+            <div class="text-center mb-16 space-y-4">
+                <span class="text-primary font-bold tracking-widest text-sm uppercase">Disponibilidad</span>
+                <h2 class="text-4xl font-extrabold tracking-tight">Horarios de Atención</h2>
+                <div class="w-16 h-1.5 bg-primary mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center group hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="size-14 bg-soft-red/10 text-soft-red rounded-full flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">emergency</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold mb-4">Emergencia</h3>
+                    <p class="text-primary font-bold text-lg mb-2">Lun - Dom</p>
+                    <p class="text-gray-400 font-medium tracking-wide">Atención las 24 horas</p>
+
+                </div>
+                <div
+                    class="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center group hover:shadow-xl transition-all duration-300">
+                    <div class="size-14 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">medical_information</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold mb-4">Consulta Externa</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="text-primary font-bold text-sm uppercase tracking-wider">Lunes a Viernes</p>
+                            <p class="text-navy-deep font-bold text-lg">08:00h - 19:00h</p>
+                        </div>
+                        <div>
+                            <p class="text-primary font-bold text-sm uppercase tracking-wider">Sábados</p>
+                            <p class="text-navy-deep font-bold text-lg">08:00h - 13:00h</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-white p-10 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center group hover:shadow-xl transition-all duration-300">
+                    <div
+                        class="size-14 bg-mint-green/10 text-navy-deep rounded-full flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-3xl">support_agent</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold mb-4">Atención al Usuario</h3>
+                    <p class="text-primary font-bold text-lg mb-2">Lun - Vie</p>
+                    <p class="text-navy-deep font-bold text-lg mb-6">08:00h - 15:45h</p>
+
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="max-w-[1440px] mx-auto px-8 py-24 bg-gray-50/50 mt-16">
+
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div class="space-y-4">
+                    <span class="text-primary font-bold tracking-widest text-sm uppercase">Nuestros Servicios</span>
+                    <h2 class="text-4xl font-extrabold tracking-tight">Especialidades Médicas</h2>
+                </div>
+                <p class="text-gray-500 max-w-md text-lg">Contamos con infraestructura de última
+                    generación y los mejores profesionales para tu cuidado integral.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- border-gray-100 -->
+                <div
+                    class="group p-8 rounded-3xl border border-transparent bg-white hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all cursor-pointer">
+                    <div
+                        class="size-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all mb-8">
+                        <span class="material-symbols-outlined text-4xl">favorite</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cardiología</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Prevención, diagnóstico y tratamiento de
+                        enfermedades cardiovasculares avanzadas.</p>
+                    <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-300"></div>
+                </div>
+                <div
+                    class="group p-8 rounded-3xl border border-gray-100 bg-white hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all cursor-pointer">
+                    <div
+                        class="size-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all mb-8">
+                        <span class="material-symbols-outlined text-4xl">neurology</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Neurología</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Atención integral del sistema nervioso central
+                        y periférico con tecnología de punta.</p>
+                    <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-300"></div>
+                </div>
+                <div
+                    class="group p-8 rounded-3xl border border-gray-100 bg-white hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all cursor-pointer">
+                    <div
+                        class="size-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all mb-8">
+                        <span class="material-symbols-outlined text-4xl">child_care</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Pediatría</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Cuidado especializado para el crecimiento y
+                        desarrollo saludable de tus hijos.</p>
+                    <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-300"></div>
+                </div>
+                <div
+                    class="group p-8 rounded-3xl border border-gray-100 bg-white hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all cursor-pointer">
+                    <div
+                        class="size-16 bg-primary/5 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all mb-8">
+                        <span class="material-symbols-outlined text-4xl">radiology</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Diagnóstico</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-6">Resultados precisos con la tecnología de
+                        imagen y laboratorio más avanzada del país.</p>
+                    <div class="h-1 w-0 bg-primary group-hover:w-full transition-all duration-300"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-navy-deep py-24 overflow-hidden">
+            <div class="max-w-[1440px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
+                <div class="space-y-8 text-white">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-mint-green/30">
+                        <span
+                            class="text-mint-green text-[10px] font-bold tracking-widest uppercase">Próximamente</span>
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-extrabold leading-tight">Tu salud, <br />en la palma de tu mano
+                    </h2>
+                    <p class="text-white/60 text-lg max-w-md">Descarga nuestra app móvil para gestionar tus citas
+                        médicas, ver resultados de laboratorio y recibir telemedicina donde sea que estés.</p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <button
+                            class="bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl flex items-center gap-3 transition-all">
+                            <span class="material-symbols-outlined text-3xl">phone_iphone</span>
+                            <div class="text-left">
+                                <p class="text-[10px] opacity-60 uppercase font-bold">Descargar en</p>
+                                <p class="font-bold">App Store</p>
+                            </div>
+                        </button>
+                        <button
+                            class="bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-xl flex items-center gap-3 transition-all">
+                            <span class="material-symbols-outlined text-3xl">phone_iphone</span>
+                            <div class="text-left">
+                                <p class="text-[10px] opacity-60 uppercase font-bold">Disponible en</p>
+                                <p class="font-bold">Google Play</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative flex justify-center">
+                    <div class="absolute inset-0 bg-primary/20 blur-[100px] rounded-full"></div>
+                    <div class="relative z-10 flex gap-4 -mb-40">
+                        <div
+                            class="w-64 h-[500px] bg-navy-deep border-[8px] border-white/10 rounded-[40px] overflow-hidden shadow-2xl">
+                            <img alt="App interface" class="w-full h-full object-cover opacity-80"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh6eu1UogmoRvrxvp-UBrcLk2J44SpyNZSSCNoBQZJmbKoeeRmVoGDNwsY7RJZKYfrZDhdVupQH7jwE9eHSZhdP98uDw76xzUw5Z5W5GOKbbW2Uq81azftLCKgP9Nx8gvfYNSDi-8UxA3xyNodu_iLk3rsDu8lyWM2SXWrBWioBl2Ad_OPhy9iriStXZTPukb0l8OGO3_rba6An7B-EKZw3vGwfR2MtlNoMDuZOu-gpn2nbQ0HxilVkEmarI8B9GQnhH8jXIAJ2Js" />
+                        </div>
+                        <div
+                            class="w-64 h-[500px] bg-navy-deep border-[8px] border-white/10 rounded-[40px] overflow-hidden mt-12 shadow-2xl hidden md:block">
+                            <img alt="App interface 2" class="w-full h-full object-cover opacity-80"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEfvkXUOQv4ajbTSrRElBYxPkPCR72UgbHTROFfUD6g_dafsKtbbVLk3eFdZkH-WxmzpZcedO6Trb1r6RRTfXumdYWVAd5hqBD7lBwAuDyndE5xXLwGoJSbBlcCKtF7dM4FMEOY1tnUB2smgKxvzImP-FMi1gwZ7bpfyc0MWe0YJx-d4uaxYatxA_pPbgtd_Vko1ZUNbW-dDjfK6yjEWiyW3rJXEFOaJbJn7TmHhtVcwwTdfg7mwXOepwBCRsL56CQiX2xAP0gukw" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="max-w-[1440px] mx-auto px-8 py-24">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div class="space-y-4">
+                    <span class="text-primary font-bold tracking-widest text-sm uppercase">Autoatención</span>
+                    <h2 class="text-4xl font-extrabold tracking-tight">Servicios en Línea</h2>
+                </div>
+                <p class="text-gray-500 max-w-md text-lg">Accede a nuestros principales servicios digitales de forma
+                    rápida y segura, sin salir de casa.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <a class="group relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    href="#" target="_blank">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img alt="Citas Médicas"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWPK9UX9KCQgiW9rNiM16q5cJmD8OprJVRUhnwog3MEBDtGJSgRyozh59yMFfqFeeBKAJOTfJN5vFinZcAjKNqZOWQofXZyoKqBWUD5uX6-tPvCYU4wajuXononMqYaX6vQAC47pDhY15LvPeWUqb-Oa7YymmRexj5bCDdiTVjwYtCxwAr7TnfAPUckmbQBchDbsivXfQYF6DyC1neygIsKCl8bv9XUd-z1w7HXSgMAFyDh7byrBXXAMP3PegoF_Ge3ToMiUaDoJ4" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-navy-deep group-hover:text-primary transition-colors">Citas
+                            Médicas</h3>
+                        <span
+                            class="material-symbols-outlined text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all">open_in_new</span>
+                    </div>
+                </a>
+                <a class="group relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    href="#" target="_blank">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img alt="Resultados"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxkC4Cwl4HLdR4TYxRQl8xMX_LX95TZzFS-nd2-8R9WLlCexeyVZsXBlWuPYuXoUOGhQqtZsr7HzRlQNUAMie3rCpkMumlOrgq87aRhrmzs-r6lWqQNvDJQhAjX3m_fXUWpTKcoM3cvj0Rm5u1mhm81F0PaVG9EGqjus7O5N7Y5BDZRgOku3_-RhPRUaO37iD8HfV8hvfJ73iPMG_GrA6Y7LZjD-NKCqyLpQdnXm8knCV-DHy1QtI5h9P_55Ki8SG2ZPq4gBq0r7I" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-navy-deep group-hover:text-primary transition-colors">
+                            Resultados</h3>
+                        <span
+                            class="material-symbols-outlined text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all">open_in_new</span>
+                    </div>
+                </a>
+                <a class="group relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    href="#" target="_blank">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img alt="Telemedicina"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEfvkXUOQv4ajbTSrRElBYxPkPCR72UgbHTROFfUD6g_dafsKtbbVLk3eFdZkH-WxmzpZcedO6Trb1r6RRTfXumdYWVAd5hqBD7lBwAuDyndE5xXLwGoJSbBlcCKtF7dM4FMEOY1tnUB2smgKxvzImP-FMi1gwZ7bpfyc0MWe0YJx-d4uaxYatxA_pPbgtd_Vko1ZUNbW-dDjfK6yjEWiyW3rJXEFOaJbJn7TmHhtVcwwTdfg7mwXOepwBCRsL56CQiX2xAP0gukw" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-navy-deep group-hover:text-primary transition-colors">
+                            Telemedicina</h3>
+                        <span
+                            class="material-symbols-outlined text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all">open_in_new</span>
+                    </div>
+                </a>
+                <a class="group relative overflow-hidden rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                    href="#" target="_blank">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img alt="Pagos Online"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh6eu1UogmoRvrxvp-UBrcLk2J44SpyNZSSCNoBQZJmbKoeeRmVoGDNwsY7RJZKYfrZDhdVupQH7jwE9eHSZhdP98uDw76xzUw5Z5W5GOKbbW2Uq81azftLCKgP9Nx8gvfYNSDi-8UxA3xyNodu_iLk3rsDu8lyWM2SXWrBWioBl2Ad_OPhy9iriStXZTPukb0l8OGO3_rba6An7B-EKZw3vGwfR2MtlNoMDuZOu-gpn2nbQ0HxilVkEmarI8B9GQnhH8jXIAJ2Js" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-deep/60 to-transparent"></div>
+                    </div>
+                    <div class="p-6 flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-navy-deep group-hover:text-primary transition-colors">Pagos
+                            Online</h3>
+                        <span
+                            class="material-symbols-outlined text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all">open_in_new</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="max-w-[1440px] mx-auto px-8 pb-24">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div class="space-y-4">
+                    <span class="text-primary font-bold tracking-widest text-sm uppercase">Actualidad</span>
+                    <h2 class="text-4xl font-extrabold tracking-tight">Noticias Recientes</h2>
+                </div>
+                <p class="text-gray-500 max-w-md text-lg">Mantente informado sobre los últimos avances, campañas de
+                    salud y novedades de nuestra institución.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <article
+                    class="group bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+                    <div class="aspect-[16/10] overflow-hidden relative">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT2DCfnEiFa-YhvCTd2VF8lMNw_slDsTKDsCF6Hl4tiuVg4OqEQstyj2utroUy5_Qrwr-9NVaFrnuxV1sBlJ7Ub-1PIx3Qx0p_3R6_IXjVO4HvfNcJCuJkSk0crZOxbcLRULl22TgaVzhEVcz3mQdMJdpyUaVcF1hgVQltC_P-tufPJzNk6hShCYsi6nMyjVsgCXlLQj2NpVkJaYvMSBlFSx8LKFgfAnL6iAS3aCA3TBvp5vl6PqA-Q4pXfizGXCCq8DpK-mfsCr8"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            alt="Noticia">
+                        <div
+                            class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
+                            <span
+                                class="text-[10px] font-black uppercase text-primary tracking-widest">Tecnología</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">12 Octubre, 2024</span>
+                        <h3
+                            class="text-xl font-extrabold text-navy-deep mt-3 mb-4 leading-tight group-hover:text-primary transition-colors">
+                            Inauguramos nueva unidad de resonancia 3T</h3>
+                        <p class="text-gray-500 leading-relaxed text-sm mb-8 line-clamp-3">Contamos con la tecnología
+                            más avanzada de la región para diagnósticos precisos en menor tiempo y con mayor comodidad
+                            para el paciente.</p>
+                        <a href="noticia_detalle.html"
+                            class="flex items-center gap-2 text-primary font-bold text-sm group/link">
+                            Leer noticia completa
+                            <span
+                                class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article
+                    class="group bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+                    <div class="aspect-[16/10] overflow-hidden relative">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHySWxvdinVQS2Y9A_3OUiPm4IK5WkRTqUux21RfBG4BUGVhn7PzOkhxL6OPckztunKSlDYiesJU_oMOnTW-WLgVSILqbX3CE6tvaMMYCCz57gpp4pZAeO1rUHrWYgbPOCVGxxj1Vnnir1caS2fjPhR6AcHFhGpTynXk66H9g-rG5yO-I2vi8-4RbN1R-NNfnFmSUzch1oayG3gjJPKPZ4xGzg6zcfKdI-YBpNs-eduiFpyFZ-1WS1wGzisGix4osqnWlydhclN94"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            alt="Noticia">
+                        <div
+                            class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
+                            <span
+                                class="text-[10px] font-black uppercase text-primary tracking-widest">Prevención</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">08 Octubre, 2024</span>
+                        <h3
+                            class="text-xl font-extrabold text-navy-deep mt-3 mb-4 leading-tight group-hover:text-primary transition-colors">
+                            Campaña de vacunación pediátrica 2024</h3>
+                        <p class="text-gray-500 leading-relaxed text-sm mb-8 line-clamp-3">Iniciamos la jornada nacional
+                            protegiendo a los más pequeños. Atendemos de forma gratuita en el módulo de pediatría.</p>
+                        <a href="noticia_detalle.html"
+                            class="flex items-center gap-2 text-primary font-bold text-sm group/link">
+                            Leer noticia completa
+                            <span
+                                class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article
+                    class="group bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+                    <div class="aspect-[16/10] overflow-hidden relative">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGARYZGFwwLmocEIFkP8YDkbiJ_Qm0UdZygbqKJDS6lrXdgUUX83_8ev0NhDemI1Iwf3MaHooZ6AgquD4pU7krjwXNKzo5StHjjfycNyqABAurVVDzDdN-ylZ-pFjGXANkPYHj5Di4U2HvJeI5Z_KEnRoyKjPO71q1XQ8VUeyUgu7ng3bdGTSOSvbbTA7LMve5mQfL8wUQEqM7vXq0oZVbSoQ-Qj0eATHZ58hRCBQDxO6rofVJsON1AnqgFgPGfxSQwe5hMxFKxYc"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            alt="Noticia">
+                        <div
+                            class="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
+                            <span
+                                class="text-[10px] font-black uppercase text-primary tracking-widest">Institucional</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <span class="text-gray-400 text-xs font-bold uppercase tracking-widest">01 Octubre, 2024</span>
+                        <h3
+                            class="text-xl font-extrabold text-navy-deep mt-3 mb-4 leading-tight group-hover:text-primary transition-colors">
+                            Acreditación internacional de calidad</h3>
+                        <p class="text-gray-500 leading-relaxed text-sm mb-8 line-clamp-3">Este sello reafirma nuestro
+                            compromiso inquebrantable con la seguridad del paciente y la excelencia médica.</p>
+                        <a href="noticia_detalle.html"
+                            class="flex items-center gap-2 text-primary font-bold text-sm group/link">
+                            Leer noticia completa
+                            <span
+                                class="material-symbols-outlined text-lg group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            <div class="flex justify-center">
+                <a href="noticias_2.html"
+                    class="group flex items-center gap-3 bg-white border-2 border-primary text-primary px-10 py-4 rounded-2xl font-bold hover:bg-primary hover:text-white transition-all">
+                    Ver más noticias
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">
+                        arrow_forward
+                    </span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+    <footer class="bg-footer-gray pt-20 pb-12">
+        <div class="max-w-[1440px] mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-20">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <!-- <div class="text-primary flex size-8 items-center justify-center bg-primary/10 rounded-lg">
+                            <span class="material-symbols-outlined text-2xl">medical_services</span>
+                        </div>
+                        <h2 class="text-navy-deep text-lg font-extrabold tracking-tight italic">HOSPITAL<span
+                                class="font-light text-primary">MIN</span></h2> -->
+                        <img src="assets/img/logo_caleta_nuevo.png" width="200">
+                    </div>
+                    <p class="text-gray-500 text-sm leading-relaxed">Referente en salud privada, comprometidos con la
+                        excelencia médica y el trato humano desde 1995.</p>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-xl">social_leaderboard</span></a>
+                        <a class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-xl">camera</span></a>
+                        <a class="w-10 h-10 rounded-full bg-white border border-gray-100 flex items-center justify-center hover:bg-primary hover:text-white transition-all"
+                            href="#"><span class="material-symbols-outlined text-xl">play_circle</span></a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-8 lg:col-span-2">
+                    <div class="space-y-6">
+                        <h4 class="font-bold text-navy-deep uppercase text-xs tracking-widest">Institución</h4>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><a class="hover:text-primary transition-colors" href="#">Nosotros</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Directorio Médico</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Responsabilidad Social</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Trabaja con nosotros</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="font-bold text-navy-deep uppercase text-xs tracking-widest">Pacientes</h4>
+                        <ul class="space-y-4 text-sm text-gray-500">
+                            <li><a class="hover:text-primary transition-colors" href="#">Prepago y Seguros</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Preguntas Frecuentes</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Canal Ético</a></li>
+                            <li><a class="hover:text-primary transition-colors" href="#">Derechos y Deberes</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="font-bold text-navy-deep uppercase text-xs tracking-widest">Sede Central</h4>
+                    <div class="h-32 w-full rounded-2xl overflow-hidden border border-gray-200 grayscale relative">
+                        <img alt="Map Location" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw0ZrwTQ4xK__kJAaKB2X7HPY9whrZx4K8UWaussVNSAFu2uDBA_CzKQZZS4kl4jUmHZneASgmKG0uex5CkD4yIOzOHgyclbAMLklYKqD9vEPebIoATzIQiN4V_YbdLvYllo9cXkSWXDvKi8wqhd_j4PcETeReH5tNYQZLx5zJbelWkEX8rW45rS-FrGH4_MmNm8-O4Sv1BLYw44JjqkrmAHnZ8PJ0nOwj1Uc9EOUqqPKLA76UmaFSHzpsC8NWnor7I9dgAfINiWo" />
+                        <div class="absolute inset-0 bg-primary/5"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary text-3xl">location_on</span>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-500">
+                        <p class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-lg">pin_drop</span> Av. Malecon Grau s/n - Urb.
+                            La Caleta
+                        </p>
+                        <p class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">call</span>
+                            +51 043327589</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+                <p>© 2026 Hospital La Caleta. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-navy-deep" href="#">Política de Privacidad</a>
+                    <a class="hover:text-navy-deep" href="#">Cookies</a>
+                    <a class="hover:text-navy-deep" href="#">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="fixed bottom-10 right-10 z-[60]">
+        <button
+            class="group flex items-center gap-3 bg-white border border-soft-red/20 text-soft-red pr-6 pl-2 py-2 rounded-full shadow-lg hover:shadow-soft-red/20 hover:scale-105 transition-all">
+            <div class="size-10 bg-soft-red text-white rounded-full flex items-center justify-center animate-pulse">
+                <span class="material-symbols-outlined text-xl font-bold">emergency</span>
+            </div>
+            <div class="flex flex-col items-start leading-tight">
+                <span class="text-[9px] uppercase font-black tracking-widest opacity-60">Emergencia 24/7</span>
+                <span class="text-sm font-bold text-navy-deep">Llamar Ahora</span>
+            </div>
+        </button>
+    </div>
+
+</body>
+
+</html>
